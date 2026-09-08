@@ -8,6 +8,12 @@ from .options import IronNestGoal, IronNestTraps
 if TYPE_CHECKING:
     from .world import IronNestWorld
 
+# Progressive Munitions?
+# Progressive Explosive Munition - LE > HE > HCHE > ATMC
+# Progressive Armor Piercing - AP > APHE > EQKE
+# Progressive
+
+
 ITEM_NAME_TO_ID = {
     #"Right Gun Unlock": 1,
     #"Requisition Table Unlock": 2,
@@ -74,8 +80,8 @@ ITEM_NAME_TO_ID = {
 DEFAULT_ITEM_CLASSIFICATIONS = {
     #"Right Gun Unlock": ItemClassification.progression,
     #"Requisition Table Unlock": ItemClassification.progression,
-    "Mission 1 Briefing": ItemClassification.progression,
-    "Mission 2 Briefing": ItemClassification.progression,
+    #"Mission 1 Briefing": ItemClassification.progression,
+    #"Mission 2 Briefing": ItemClassification.progression,
     "Mission 3 Briefing": ItemClassification.progression,
     "Mission 4 Briefing": ItemClassification.progression,
     "Mission 5 Briefing": ItemClassification.progression,
@@ -169,8 +175,8 @@ def create_all_items(world: IronNestWorld) -> None:
     itempool: list[Item] = [
         #world.create_item("Right Gun Unlock"),
         #world.create_item("Requisition Table Unlock"),
-        world.create_item("Mission 1 Briefing"),
-        world.create_item("Mission 2 Briefing"),
+        #world.create_item("Mission 1 Briefing"),
+        #world.create_item("Mission 2 Briefing"),
         world.create_item("Mission 3 Briefing"),
         world.create_item("Mission 4 Briefing"),
         world.create_item("Mission 5 Briefing"),

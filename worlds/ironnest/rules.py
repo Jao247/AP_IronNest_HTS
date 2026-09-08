@@ -26,27 +26,27 @@ HAS_M15_BRIEFING = Has("Mission 15 Briefing")
 
 def set_all_rules(world: IronNestWorld) -> None:
 
-    set_all_entrance_rules(world)
+    #set_all_entrance_rules(world)
     #set_all_location_rules(world)
     set_completion_condition(world)
 
 
-def set_all_entrance_rules(world: IronNestWorld) -> None:
-    access_to_mission_1 = world.get_entrance("Mission 1")
+#def set_all_entrance_rules(world: IronNestWorld) -> None:
+    #access_to_mission_1 = world.get_entrance("Mission 1")
 
 #def set_all_location_rules(world: IronNestWorld) -> None:
 
 
 def set_completion_condition(world: IronNestWorld) -> None:
     if world.options.iron_nest_goal == IronNestGoal.option_medal_1:
-        world.set_completion_rule(CanReachLocation("Mission 15 - Ending 1"))
+        world.set_completion_rule(CanReachLocation("Mission 15: White Shells - Ending 1"))
     elif world.options.iron_nest_goal == IronNestGoal.option_medal_2:
-        world.set_completion_rule(CanReachLocation("Mission 15 - Ending 2"))
+        world.set_completion_rule(CanReachLocation("Mission 15: White Shells - Ending 2"))
     elif world.options.iron_nest_goal == IronNestGoal.option_medal_3:
-        world.set_completion_rule(CanReachLocation("Mission 15 - Ending 3"))
+        world.set_completion_rule(CanReachLocation("Mission 15: White Shells - Ending 3"))
     elif world.options.iron_nest_goal == IronNestGoal.option_medal_4:
-        world.set_completion_rule(CanReachLocation("Mission 15 - Ending 4"))
+        world.set_completion_rule(CanReachLocation("Mission 15: White Shells - Ending 4"))
     elif world.options.iron_nest_goal == IronNestGoal.option_phantom_battery:
-        world.set_completion_rule(CanReachLocation("Mission 13 - Completion"))
+        world.set_completion_rule(CanReachLocation("Mission 13: Phantom Battery - Completion"))
     else:
         raise OptionError(f"Unknown option: {world.options.iron_nest_goal}")
