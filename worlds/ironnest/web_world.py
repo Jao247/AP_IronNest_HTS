@@ -16,7 +16,7 @@ class IronNestWebWorld(WebWorld):
         "English",
         "setup_en.md",
         "setup/en",
-        ["CelticKuma"],
+        ["CelticKuma & Vergeslich"],
     )
 
     tutorials = [setup_en]

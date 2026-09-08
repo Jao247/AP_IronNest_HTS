@@ -19,8 +19,22 @@ def create_all_regions(world: IronNestWorld) -> None:
     iron_nest_map = Region("IronNest Map", world.player, world.multiworld)
     mission_1 = Region("Mission 1", world.player, world.multiworld)
     mission_2 = Region("Mission 2", world.player, world.multiworld)
+    mission_3 = Region("Mission 3", world.player, world.multiworld)
+    mission_4 = Region("Mission 4", world.player, world.multiworld)
+    mission_5 = Region("Mission 5", world.player, world.multiworld)
+    mission_6 = Region("Mission 6", world.player, world.multiworld)
+    mission_7 = Region("Mission 7", world.player, world.multiworld)
+    mission_8 = Region("Mission 8", world.player, world.multiworld)
+    mission_9 = Region("Mission 9", world.player, world.multiworld)
+    mission_10 = Region("Mission 10", world.player, world.multiworld)
+    mission_11 = Region("Mission 11", world.player, world.multiworld)
+    mission_12 = Region("Mission 12", world.player, world.multiworld)
+    mission_13 = Region("Mission 13", world.player, world.multiworld)
+    mission_14 = Region("Mission 14", world.player, world.multiworld)
+    mission_15 = Region("Mission 15", world.player, world.multiworld)
 
-    regions = [iron_nest_map, mission_1, mission_2]
+    regions = [iron_nest_map, mission_1, mission_2, mission_3, mission_4, mission_5, mission_6, mission_7,
+               mission_8, mission_9, mission_10, mission_11, mission_12, mission_13, mission_14, mission_15]
 
     world.multiworld.regions += regions
 
@@ -29,7 +43,32 @@ def connect_regions(world: IronNestWorld) -> None:
     iron_nest_map = world.get_region("IronNest Map")
     mission_1 = world.get_region("Mission 1")
     mission_2 = world.get_region("Mission 2")
+    mission_3 = world.get_region("Mission 3")
+    mission_4 = world.get_region("Mission 4")
+    mission_5 = world.get_region("Mission 5")
+    mission_6 = world.get_region("Mission 6")
+    mission_7 = world.get_region("Mission 7")
+    mission_8 = world.get_region("Mission 8")
+    mission_9 = world.get_region("Mission 9")
+    mission_10 = world.get_region("Mission 10")
+    mission_11 = world.get_region("Mission 11")
+    mission_12 = world.get_region("Mission 12")
+    mission_13 = world.get_region("Mission 13")
+    mission_14 = world.get_region("Mission 14")
+    mission_15 = world.get_region("Mission 15")
 
     iron_nest_map.connect(mission_1, "Mission 1", HasAll("Mission 1 Briefing"))
     iron_nest_map.connect(mission_2, "Mission 2", HasAll("Mission 2 Briefing"))
-
+    iron_nest_map.connect(mission_3, "Mission 3", HasAll("Mission 3 Briefing"))
+    iron_nest_map.connect(mission_4, "Mission 4", HasAll("Mission 4 Briefing"))
+    iron_nest_map.connect(mission_5, "Mission 5", HasAll("Mission 5 Briefing"))
+    iron_nest_map.connect(mission_6, "Mission 6", HasAll("Mission 6 Briefing"))
+    iron_nest_map.connect(mission_7, "Mission 7", HasAll("Mission 7 Briefing"))
+    iron_nest_map.connect(mission_8, "Mission 8", HasAll("Mission 8 Briefing"))
+    iron_nest_map.connect(mission_9, "Mission 9", HasAll("Mission 9 Briefing"))
+    iron_nest_map.connect(mission_10, "Mission 10", HasAll("Mission 10 Briefing"))
+    iron_nest_map.connect(mission_11, "Mission 11", HasAll("Mission 11 Briefing"))
+    iron_nest_map.connect(mission_12, "Mission 12", HasAll("Mission 12 Briefing"))
+    iron_nest_map.connect(mission_13, "Mission 13", HasAll("Mission 13 Briefing"))
+    iron_nest_map.connect(mission_14, "Mission 14", HasAll("Mission 14 Briefing"))
+    iron_nest_map.connect(mission_15, "Mission 15", HasAll("Mission 15 Briefing"))
