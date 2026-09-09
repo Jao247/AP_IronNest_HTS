@@ -6,16 +6,16 @@ from BaseClasses import Entrance, Region
 from rule_builder.rules import HasAll
 
 if TYPE_CHECKING:
-    from .world import IronNestWorld
+    from .world import IronNestCRWorld
 
 
 
-def create_and_connect_regions(world: IronNestWorld) -> None:
+def create_and_connect_regions(world: IronNestCRWorld) -> None:
     create_all_regions(world)
     connect_regions(world)
 
 
-def create_all_regions(world: IronNestWorld) -> None:
+def create_all_regions(world: IronNestCRWorld) -> None:
     mission_selection_map = Region("IronNest Map", world.player, world.multiworld)
     mission_1 = Region("Mission 1", world.player, world.multiworld)
     mission_2 = Region("Mission 2", world.player, world.multiworld)
@@ -39,9 +39,9 @@ def create_all_regions(world: IronNestWorld) -> None:
     world.multiworld.regions += regions
 
 
-def connect_regions(world: IronNestWorld) -> None:
+def connect_regions(world: IronNestCRWorld) -> None:
     mission_selection_map = world.get_region("IronNest Map")
-    #mission_1 = world.get_region("Mission 1")
+    mission_1 = world.get_region("Mission 1")
     mission_2 = world.get_region("Mission 2")
     mission_3 = world.get_region("Mission 3")
     mission_4 = world.get_region("Mission 4")
@@ -57,7 +57,7 @@ def connect_regions(world: IronNestWorld) -> None:
     mission_14 = world.get_region("Mission 14")
     mission_15 = world.get_region("Mission 15")
 
-    #mission_selection_map.connect(mission_1, "Access to Mission 1", HasAll("Mission 1 Briefing"))
+    mission_selection_map.connect(mission_1, "Access to Mission 1", HasAll("Mission 1 Briefing"))
     mission_selection_map.connect(mission_2, "Access to Mission 2", HasAll("Mission 2 Briefing"))
     mission_selection_map.connect(mission_3, "Access to Mission 3", HasAll("Mission 3 Briefing"))
     mission_selection_map.connect(mission_4, "Access to Mission 4", HasAll("Mission 4 Briefing"))

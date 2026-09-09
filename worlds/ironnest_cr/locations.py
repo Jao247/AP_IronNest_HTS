@@ -7,7 +7,7 @@ from BaseClasses import ItemClassification, Location
 from . import items
 
 if TYPE_CHECKING:
-    from .world import IronNestWorld
+    from .world import IronNestCRWorld
 
 # Medals
 # OE - Ordanance Efficiency
@@ -203,19 +203,19 @@ LOCATION_NAME_TO_ID = {
     "Mission 15: White Shells - Ending 4"        : 1404,
 }
 
-class IronNestLocation(Location):
-    game = "IRON NEST: Heavy Turret Simulator"
+class IronNestCRLocation(Location):
+    game = "IRON NEST: Heavy Turret Simulator (CR)"
 
 def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | None]:
     return {location_name: LOCATION_NAME_TO_ID[location_name] for location_name in location_names}
 
 
-def create_all_locations(world: IronNestWorld) -> None:
+def create_all_locations(world: IronNestCRWorld) -> None:
     create_regular_locations(world)
     #create_events(world)
 
 
-def create_regular_locations(world: IronNestWorld) -> None:
+def create_regular_locations(world: IronNestCRWorld) -> None:
     mission_1 = world.get_region("Mission 1")
     mission_2 = world.get_region("Mission 2")
     mission_3 = world.get_region("Mission 3")
@@ -238,7 +238,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 1: Calibration Fire - OE Silver" ,
         "Mission 1: Calibration Fire - OE Gold"   ,
     ])
-    mission_1.add_locations(mission_1_locations, IronNestLocation)
+    mission_1.add_locations(mission_1_locations, IronNestCRLocation)
 
     mission_2_locations = get_location_names_with_ids([
         "Mission 2: Fire and Light - Completion",
@@ -246,7 +246,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 2: Fire and Light - OE Silver" ,
         "Mission 2: Fire and Light - OE Gold"   ,
     ])
-    mission_2.add_locations(mission_2_locations, IronNestLocation)
+    mission_2.add_locations(mission_2_locations, IronNestCRLocation)
 
     mission_3_locations = get_location_names_with_ids([
         "Mission 3: Liberation - Completion",
@@ -263,7 +263,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 3: Liberation - AS Silver" ,
         "Mission 3: Liberation - AS Gold" ,
     ])
-    mission_3.add_locations(mission_3_locations, IronNestLocation)
+    mission_3.add_locations(mission_3_locations, IronNestCRLocation)
 
     mission_4_locations = get_location_names_with_ids([
         "Mission 4: Counter-Battery - Completion",
@@ -280,7 +280,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 4: Counter-Battery - NQ Silver" ,
         "Mission 4: Counter-Battery - NQ Gold" ,
     ])
-    mission_4.add_locations(mission_4_locations, IronNestLocation)
+    mission_4.add_locations(mission_4_locations, IronNestCRLocation)
 
     mission_5_locations = get_location_names_with_ids([
         "Mission 5: Iron Road - Completion",
@@ -297,7 +297,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 5: Iron Road - UF Silver" ,
         "Mission 5: Iron Road - UF Gold" ,
     ])
-    mission_5.add_locations(mission_5_locations, IronNestLocation)
+    mission_5.add_locations(mission_5_locations, IronNestCRLocation)
 
     mission_6_locations = get_location_names_with_ids([
         "Mission 6: Siege of Cartagena - Completion",
@@ -314,7 +314,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 6: Siege of Cartagena - AS Silver" ,
         "Mission 6: Siege of Cartagena - AS Gold" ,
     ])
-    mission_6.add_locations(mission_6_locations, IronNestLocation)
+    mission_6.add_locations(mission_6_locations, IronNestCRLocation)
 
     mission_7_locations = get_location_names_with_ids([
         "Mission 7: The Gorge - Completion",
@@ -331,7 +331,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 7: The Gorge - OE Silver" ,
         "Mission 7: The Gorge - OE Gold" ,
     ])
-    mission_7.add_locations(mission_7_locations, IronNestLocation)
+    mission_7.add_locations(mission_7_locations, IronNestCRLocation)
 
     mission_8_locations = get_location_names_with_ids([
         "Mission 8: Rock of Gibraltar - Completion",
@@ -348,7 +348,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 8: Rock of Gibraltar - AS Silver" ,
         "Mission 8: Rock of Gibraltar - AS Gold" ,
     ])
-    mission_8.add_locations(mission_8_locations, IronNestLocation)
+    mission_8.add_locations(mission_8_locations, IronNestCRLocation)
 
     mission_9_locations = get_location_names_with_ids([
         "Mission 9: Dead Reckoning - Completion",
@@ -365,7 +365,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 9: Dead Reckoning - AS Silver" ,
         "Mission 9: Dead Reckoning - AS Gold" ,
     ])
-    mission_9.add_locations(mission_9_locations, IronNestLocation)
+    mission_9.add_locations(mission_9_locations, IronNestCRLocation)
 
     mission_10_locations = get_location_names_with_ids([
         "Mission 10: Fire and Call - Completion",
@@ -382,7 +382,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 10: Fire and Call - OE Silver" ,
         "Mission 10: Fire and Call - OE Gold" ,
     ])
-    mission_10.add_locations(mission_10_locations, IronNestLocation)
+    mission_10.add_locations(mission_10_locations, IronNestCRLocation)
 
     mission_11_locations = get_location_names_with_ids([
         "Mission 11: High Tide - Completion",
@@ -396,7 +396,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 11: High Tide - MC Silver" ,
         "Mission 11: High Tide - MC Gold" ,
     ])
-    mission_11.add_locations(mission_11_locations, IronNestLocation)
+    mission_11.add_locations(mission_11_locations, IronNestCRLocation)
 
     mission_12_locations = get_location_names_with_ids([
         "Mission 12: Blind Fire - Completion",
@@ -413,7 +413,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 12: Blind Fire - UV Silver" ,
         "Mission 12: Blind Fire - UV Gold" ,
     ])
-    mission_12.add_locations(mission_12_locations, IronNestLocation)
+    mission_12.add_locations(mission_12_locations, IronNestCRLocation)
 
     mission_13_locations = get_location_names_with_ids([
         "Mission 13: Phantom Battery - Completion",
@@ -430,7 +430,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 13: Phantom Battery - CB Silver" ,
         "Mission 13: Phantom Battery - CB Gold" ,
     ])
-    mission_13.add_locations(mission_13_locations, IronNestLocation)
+    mission_13.add_locations(mission_13_locations, IronNestCRLocation)
 
     mission_14_locations = get_location_names_with_ids([
         "Mission 14: Final Harvest - Completion",
@@ -447,7 +447,7 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 14: Final Harvest - RE Silver" ,
         "Mission 14: Final Harvest - RE Gold" ,
     ])
-    mission_14.add_locations(mission_14_locations, IronNestLocation)
+    mission_14.add_locations(mission_14_locations, IronNestCRLocation)
 
     mission_15_locations = get_location_names_with_ids([
         "Mission 15: White Shells - Ending 1",
@@ -455,6 +455,6 @@ def create_regular_locations(world: IronNestWorld) -> None:
         "Mission 15: White Shells - Ending 3",
         "Mission 15: White Shells - Ending 4",
     ])
-    mission_15.add_locations(mission_15_locations, IronNestLocation)
+    mission_15.add_locations(mission_15_locations, IronNestCRLocation)
 
 #def create_events(world: IronNestWorld) -> None:

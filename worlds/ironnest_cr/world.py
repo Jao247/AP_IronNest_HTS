@@ -6,25 +6,25 @@ from worlds.AutoWorld import World
 
 # Imports of your world's files must be relative.
 from . import items, locations, regions, rules, web_world
-from . import options as ironnest_options  # rename due to a name conflict with World.options
+from . import options as ironnest_cr_options  # rename due to a name conflict with World.options
 
 
-class IronNestWorld(World):
+class IronNestCRWorld(World):
     """
     IRON NEST: Heavy Turret Simulator is a dieselpunk alternate history where the monarchists never lost power
     """
 
-    game = "IRON NEST: Heavy Turret Simulator"
+    game = "IRON NEST: Heavy Turret Simulator (CR)"
 
-    web = web_world.IronNestWebWorld()
+    web = web_world.IronNestCRWebWorld()
 
-    options_dataclass = ironnest_options.IronNestOptions
-    options: ironnest_options.IronNestOptions
+    options_dataclass = ironnest_cr_options.IronNestOptions
+    options: ironnest_cr_options.IronNestOptions
 
     location_name_to_id = locations.LOCATION_NAME_TO_ID
     item_name_to_id = items.ITEM_NAME_TO_ID
 
-    origin_region_name = "Mission 1"
+    origin_region_name = "IronNest Map"
 
     def create_regions(self) -> None:
         regions.create_and_connect_regions(self)
@@ -36,7 +36,7 @@ class IronNestWorld(World):
     def create_items(self) -> None:
         items.create_all_items(self)
 
-    def create_item(self, name: str) -> items.IronNestItem:
+    def create_item(self, name: str) -> items.IronNestCRItem:
         return items.create_item_with_correct_classification(self, name)
 
     def get_filler_item_name(self) -> str:
@@ -44,6 +44,7 @@ class IronNestWorld(World):
 
     def fill_slot_data(self) -> Mapping[str, Any]:
         return self.options.as_dict(
-            "shuffle_right_loader", "randomise_medals",
-            "iron_nest_goal", "mission_15_requirements", "medals_to_unlock_goal", "missions_to_unlock_goal"
+            "shuffle_right_loader", "card_packs", "randomise_medals",
+            "iron_nest_cr_goal", "mission_15_requirements", "medals_to_unlock_goal", "missions_to_unlock_goal",
+            "iron_nest_cr_traps",
         )

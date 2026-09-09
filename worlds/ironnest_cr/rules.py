@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 from Options import OptionError
-from .options import IronNestGoal
+from .options import IronNestCRGoal
 from rule_builder.rules import Has, HasAll, HasAny, CanReachLocation, Or, And
 
 if TYPE_CHECKING:
-    from .world import IronNestWorld
+    from .world import IronNestCRWorld
 
 HAS_M1_BRIEFING = Has("Mission 1 Briefing")
 HAS_M2_BRIEFING = Has("Mission 2 Briefing")
@@ -24,14 +24,14 @@ HAS_M13_BRIEFING = Has("Mission 13 Briefing")
 HAS_M14_BRIEFING = Has("Mission 14 Briefing")
 HAS_M15_BRIEFING = Has("Mission 15 Briefing")
 
-def set_all_rules(world: IronNestWorld) -> None:
+def set_all_rules(world: IronNestCRWorld) -> None:
 
     set_all_entrance_rules(world)
     #set_all_location_rules(world)
     set_completion_condition(world)
 
 
-def set_all_entrance_rules(world: IronNestWorld) -> None:
+def set_all_entrance_rules(world: IronNestCRWorld) -> None:
     access_to_mission_1 = world.get_entrance("Access to Mission 1")
     access_to_mission_2 = world.get_entrance("Access to Mission 2")
     access_to_mission_3 = world.get_entrance("Access to Mission 3")
@@ -79,21 +79,21 @@ def set_all_entrance_rules(world: IronNestWorld) -> None:
 #def set_all_location_rules(world: IronNestWorld) -> None:
 
 
-def set_completion_condition(world: IronNestWorld) -> None:
-    if world.options.iron_nest_goal == IronNestGoal.option_medal_1:
+def set_completion_condition(world: IronNestCRWorld) -> None:
+    if world.options.iron_nest_cr_goal == IronNestCRGoal.option_medal_1:
         world.set_completion_rule(And(CanReachLocation("Mission 15: White Shells - Ending 1"),
                                       HasAny("Punchcard - PRPG Shell", "Punchcard - SMK Shell",
                                              "Punchcard - STAR Shell", "Utility Munitions Card Pack")))
-    elif world.options.iron_nest_goal == IronNestGoal.option_medal_2:
+    elif world.options.iron_nest_cr_goal == IronNestCRGoal.option_medal_2:
         world.set_completion_rule(And(CanReachLocation("Mission 15: White Shells - Ending 2"),
                                       HasAny("Punchcard - TEAR Shell", "Punchcard - PHGN Shell",
                                              "Punchcard - CYAN Shell", "Punchcard - FLCH Shell", "Punchcard - WP Shell",
                                              "Chemical Munitions Card Pack",)))
-    elif world.options.iron_nest_goal == IronNestGoal.option_medal_3:
+    elif world.options.iron_nest_cr_goal == IronNestCRGoal.option_medal_3:
         world.set_completion_rule(And(CanReachLocation("Mission 15: White Shells - Ending 3"),
                                       Or(HasAll("Punchcard - SMK Shell", "Punchcard - EQKE Shell", ),
                                          HasAll("Explosive Munitions Card Pack",))))
-    elif world.options.iron_nest_goal == IronNestGoal.option_medal_4:
+    elif world.options.iron_nest_cr_goal == IronNestCRGoal.option_medal_4:
         world.set_completion_rule(And(CanReachLocation("Mission 15: White Shells - Ending 4"),
                                       HasAny("Punchcard - AP Shell", "Punchcard - APHE Shell",
                                              "Punchcard - ATMC Shell", "Punchcard - CLMN Shell", "Punchcard - DRIL Shell",
@@ -101,9 +101,9 @@ def set_completion_condition(world: IronNestWorld) -> None:
                                              "Punchcard - INCN Shell", "Punchcard - LE Shell", "Punchcard - PLCM Shell",
                                              "Punchcard - THRM Shell", "AP Munitions Card Pack", "Explosive Munitions Card Pack",
                                              "Utility Munitions Card Pack", "Cluster Munitions Card Pack", "Incendiary Munitions Card Pack",)))
-    elif world.options.iron_nest_goal == IronNestGoal.option_phantom_battery:
+    elif world.options.iron_nest_cr_goal == IronNestCRGoal.option_phantom_battery:
         world.set_completion_rule(And(CanReachLocation("Mission 13: Phantom Battery - Completion"),
                                       HasAll("Punchcard - Emergency Move", "Punchcard - AP Shell",
                                              "Punchcard - Location Report", "Punchcard - Powder Charges")))
     else:
-        raise OptionError(f"Unknown option: {world.options.iron_nest_goal}")
+        raise OptionError(f"Unknown option: {world.options.iron_nest_cr_goal}")

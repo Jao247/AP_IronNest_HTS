@@ -59,7 +59,7 @@ class MissionsToUnlockGoal(Range):
     range_end = 12
     default = 5
 
-class IronNestGoal(Choice):
+class IronNestCRGoal(Choice):
     """
     What Goal do you want to achieve?
     """
@@ -71,7 +71,7 @@ class IronNestGoal(Choice):
     option_phantom_battery = 5
     default = option_medal_1
 
-class IronNestTraps(Toggle):
+class IronNestCRTraps(Toggle):
     """
     Enable Traps
     """
@@ -87,8 +87,8 @@ class IronNestOptions(PerGameCommonOptions):
     mission_15_requirements: Mission15Requirements
     medals_to_unlock_goal: MedalsToUnlockGoal
     missions_to_unlock_goal: MissionsToUnlockGoal
-    iron_nest_goal: IronNestGoal
-    iron_nest_traps: IronNestTraps
+    iron_nest_cr_goal: IronNestCRGoal
+    iron_nest_cr_traps: IronNestCRTraps
 
 #option_groups = [
 #    OptionGroup(
@@ -106,10 +106,10 @@ option_presets = {
         "shuffle_right_loader": False,
         "card_packs": False,
         "shuffle_medals": False,
-        "iron_nest_goal": IronNestGoal.option_medal_1,
+        "iron_nest_cr_goal": IronNestCRGoal.option_medal_1,
         "mission_15_requirements": Mission15Requirements.option_vanilla,
         "medals_to_unlock_goal": MedalsToUnlockGoal.default,
         "missions_to_unlock_goal": MissionsToUnlockGoal.default,
-        "iron_nest_traps": False,
+        "iron_nest_cr_traps": False,
     },
 }

@@ -5,18 +5,18 @@ from .options import option_presets
 
 
 # For our game to display correctly on the website, we need to define a WebWorld subclass.
-class IronNestWebWorld(WebWorld):
-    game = "IRON NEST: Heavy Turret Simulator"
+class IronNestCRWebWorld(WebWorld):
+    game = "IRON NEST: Heavy Turret Simulator (CR)"
 
     theme = "grassFlowers"
 
     setup_en = Tutorial(
         "Multiworld Setup Guide",
-        "IronNest setup guide",
+        "IronNest CR setup guide",
         "English",
         "setup_en.md",
         "setup/en",
-        ["CelticKuma & Vergeslich"],
+        ["CelticKuma"],
     )
 
     tutorials = [setup_en]

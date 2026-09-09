@@ -3,10 +3,10 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from BaseClasses import Item, ItemClassification
-from .options import IronNestGoal, IronNestTraps
+from .options import IronNestCRGoal, IronNestCRTraps
 
 if TYPE_CHECKING:
-    from .world import IronNestWorld
+    from .world import IronNestCRWorld
 
 # Progressive Munitions?
 # Progressive Explosive Munition - LE > HE > HCHE > ATMC
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 ITEM_NAME_TO_ID = {
     #"Right Gun Unlock": 1,
     #"Requisition Table Unlock": 2,
-    #"Mission 1 Briefing": 3,
+    "Mission 1 Briefing": 3,
     "Mission 2 Briefing": 4,
     "Mission 3 Briefing": 5,
     "Mission 4 Briefing": 6,
@@ -83,7 +83,7 @@ ITEM_NAME_TO_ID = {
 DEFAULT_ITEM_CLASSIFICATIONS = {
     #"Right Gun Unlock": ItemClassification.progression,
     #"Requisition Table Unlock": ItemClassification.progression,
-    #"Mission 1 Briefing": ItemClassification.progression,
+    "Mission 1 Briefing": ItemClassification.progression,
     "Mission 2 Briefing": ItemClassification.progression,
     "Mission 3 Briefing": ItemClassification.progression,
     "Mission 4 Briefing": ItemClassification.progression,
@@ -146,12 +146,12 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
     "Trap - Counter-Battery": ItemClassification.trap,
 }
 
-class IronNestItem(Item):
-    game = "IRON NEST: Heavy Turret Simulator"
+class IronNestCRItem(Item):
+    game = "IRON NEST: Heavy Turret Simulator (CR)"
 
-def get_random_filler_item_name(world:  IronNestWorld) -> str:
+def get_random_filler_item_name(world:  IronNestCRWorld) -> str:
     cap = 60
-    if world.options.iron_nest_traps:
+    if world.options.iron_nest_cr_traps:
         cap = 99
     rand_choice = world.random.randint(0, cap)
     if rand_choice < 30:
@@ -168,20 +168,20 @@ def get_random_filler_item_name(world:  IronNestWorld) -> str:
         return "Trap - Emergency Move"
 
 
-def create_item_with_correct_classification(world:  IronNestWorld, name: str) -> IronNestItem:
+def create_item_with_correct_classification(world:  IronNestCRWorld, name: str) -> IronNestCRItem:
     classification = DEFAULT_ITEM_CLASSIFICATIONS[name]
 
     # If Goal is Phantom Battery - Emergency Movement is a progression Item.
-    if world.options.iron_nest_goal == IronNestGoal.option_phantom_battery and (name == "Movement Card Pack" or name == "Emergency Move Requisition Card"):
+    if world.options.iron_nest_cr_goal == IronNestCRGoal.option_phantom_battery and (name == "Movement Card Pack" or name == "Emergency Move Requisition Card"):
         classification = ItemClassification.progression
-    return IronNestItem(name, classification, ITEM_NAME_TO_ID[name], world.player)
+    return IronNestCRItem(name, classification, ITEM_NAME_TO_ID[name], world.player)
 
-def create_all_items(world: IronNestWorld) -> None:
+def create_all_items(world: IronNestCRWorld) -> None:
 
     itempool: list[Item] = [
         #world.create_item("Right Gun Unlock"),
         #world.create_item("Requisition Table Unlock"),
-        #world.create_item("Mission 1 Briefing"),
+        world.create_item("Mission 1 Briefing"),
         world.create_item("Mission 2 Briefing"),
         world.create_item("Mission 3 Briefing"),
         world.create_item("Mission 4 Briefing"),
