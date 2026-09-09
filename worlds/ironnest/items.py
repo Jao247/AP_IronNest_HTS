@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 ITEM_NAME_TO_ID = {
     #"Right Gun Unlock": 1,
     #"Requisition Table Unlock": 2,
-    "Mission 1 Briefing": 3,
+    #"Mission 1 Briefing": 3,
     "Mission 2 Briefing": 4,
     "Mission 3 Briefing": 5,
     "Mission 4 Briefing": 6,
@@ -33,11 +33,14 @@ ITEM_NAME_TO_ID = {
     "Mission 14 Briefing": 16,
     "Mission 15 Briefing": 17,
     # Card Packs
-    "Munitions Card Pack 1" : 100,
-    "Munitions Card Pack 2" : 101,
-    "Munitions Card Pack 3" : 102,
-    "Movement Card Pack" : 103,
-    "Scouting Card Pack" : 104,
+    "AP Munitions Card Pack" : 100,
+    "Cluster Munitions Card Pack" : 101,
+    "Chemical Munitions Card Pack" : 102,
+    "Utility Munitions Card Pack" : 103,
+    "Explosive Munitions Card Pack" : 104,
+    "Incendiary Munitions Card Pack" : 105,
+    "Movement Card Pack" : 106,
+    "Scouting Card Pack" : 107,
     # Punchcards
     "Punchcard - HE Shell" : 1000,
     "Punchcard - AP Shell" : 1001,
@@ -81,7 +84,7 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
     #"Right Gun Unlock": ItemClassification.progression,
     #"Requisition Table Unlock": ItemClassification.progression,
     #"Mission 1 Briefing": ItemClassification.progression,
-    #"Mission 2 Briefing": ItemClassification.progression,
+    "Mission 2 Briefing": ItemClassification.progression,
     "Mission 3 Briefing": ItemClassification.progression,
     "Mission 4 Briefing": ItemClassification.progression,
     "Mission 5 Briefing": ItemClassification.progression,
@@ -96,9 +99,12 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
     "Mission 14 Briefing": ItemClassification.progression,
     "Mission 15 Briefing": ItemClassification.progression,
     # Card Packs
-    "Munitions Card Pack 1" : ItemClassification.progression,
-    "Munitions Card Pack 2" : ItemClassification.useful,
-    "Munitions Card Pack 3" : ItemClassification.useful,
+    "AP Munitions Card Pack" : ItemClassification.progression,
+    "Cluster Munitions Card Pack" : ItemClassification.useful,
+    "Chemical Munitions Card Pack" : ItemClassification.useful,
+    "Utility Munitions Card Pack" : ItemClassification.useful,
+    "Explosive Munitions Card Pack" : ItemClassification.progression,
+    "Incendiary Munitions Card Pack" : ItemClassification.useful,
     "Movement Card Pack" : ItemClassification.progression | ItemClassification.useful,
     "Scouting Card Pack" : ItemClassification.useful,
     # Punch cards
@@ -176,7 +182,7 @@ def create_all_items(world: IronNestWorld) -> None:
         #world.create_item("Right Gun Unlock"),
         #world.create_item("Requisition Table Unlock"),
         #world.create_item("Mission 1 Briefing"),
-        #world.create_item("Mission 2 Briefing"),
+        world.create_item("Mission 2 Briefing"),
         world.create_item("Mission 3 Briefing"),
         world.create_item("Mission 4 Briefing"),
         world.create_item("Mission 5 Briefing"),
@@ -192,40 +198,46 @@ def create_all_items(world: IronNestWorld) -> None:
         world.create_item("Mission 15 Briefing"),
         world.create_item("Punchcard - ATMC Shell"),
         world.create_item("Punchcard - EQKE Shell"),
+        world.create_item("Punchcard - Powder Charge"),
     ]
 
     if world.options.card_packs:
         itempool += [
-            world.create_item("Munitions Card Pack 1"),
-            world.create_item("Munitions Card Pack 2"),
-            world.create_item("Munitions Card Pack 3"),
+            world.create_item("AP Munitions Card Pack"),
+            world.create_item("Cluster Munitions Card Pack"),
+            world.create_item("Chemical Munitions Card Pack"),
+            world.create_item("Utility Munitions Card Pack"),
+            world.create_item("Explosive Munitions Card Pack"),
+            world.create_item("Incendiary Munitions Card Pack"),
             world.create_item("Movement Card Pack"),
             world.create_item("Scouting Card Pack"),
         ]
     else :
         itempool += [
-            # Munitions Pack 1
-            world.create_item("Punchcard - HE Shell"),
+            # AP Munitions Pack
             world.create_item("Punchcard - AP Shell"),
-            world.create_item("Punchcard - LE Shell"),
-            world.create_item("Punchcard - STAR Shell"),
-            world.create_item("Punchcard - TEAR Shell"),
-            world.create_item("Punchcard - SMK Shell"),
-            world.create_item("Punchcard - Powder Charge"),
-            # Munitions Pack 2
             world.create_item("Punchcard - APHE Shell"),
+            # Explosive Munitions Pack
+            world.create_item("Punchcard - HE Shell"),
+            world.create_item("Punchcard - LE Shell"),
+            world.create_item("Punchcard - FLCH Shell"),
             world.create_item("Punchcard - HCHE Shell"),
+            # Utility Munitions Pack
+            world.create_item("Punchcard - STAR Shell"),
+            world.create_item("Punchcard - SMK Shell"),
+            world.create_item("Punchcard - PRPG Shell"),
             world.create_item("Punchcard - DRIL Shell"),
-            world.create_item("Punchcard - INCN Shell"),
+            # Chemical Munitions Pack
+            world.create_item("Punchcard - TEAR Shell"),
             world.create_item("Punchcard - PHGN Shell"),
             world.create_item("Punchcard - CYAN Shell"),
-            # Munitions Pack 3
-            world.create_item("Punchcard - CLMN Shell"),
-            world.create_item("Punchcard - FLCH Shell"),
-            world.create_item("Punchcard - PCLM Shell"),
-            world.create_item("Punchcard - THRM Shell"),
             world.create_item("Punchcard - WP Shell"),
-            world.create_item("Punchcard - PRPG Shell"),
+            # Cluster Munitions Pack
+            world.create_item("Punchcard - CLMN Shell"),
+            world.create_item("Punchcard - PCLM Shell"),
+            # Incendiary Munitions Pack
+            world.create_item("Punchcard - INCN Shell"),
+            world.create_item("Punchcard - THRM Shell"),
             # Scouting Pack
             world.create_item("Punchcard - Scout Plane"),
             world.create_item("Punchcard - Spotter"),
